@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Webauthn Login</title>
+    <script src='static/js/libs/cbor.js'></script>
+    <script src='static/js/utils.js'></script>
+    <script src='static/js/login.js'></script>
+</head>
+<body>
+  <form>
+    <input type="text" name="name" value="test_name" /><br>
+    <input id="login" type="button" value="ログイン" /><br>
+    <label id="result"></label>
+  </form>
+  <script>
+    document.querySelector('#login').addEventListener('click', () => {
+      const form = document.querySelector('form');
+      onLogin(form.name.value).then((result) => {
+        document.querySelector('#result').innerHTML = result;
+      });
+    });
+  </script>
+</body>
+</html>
+
